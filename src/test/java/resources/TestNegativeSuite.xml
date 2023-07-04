@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="negativeTests">
+    <!-- integersTests -->
+    <test name="IntegersAdditionTest">
+        <classes>
+            <class name="negativeTests.integers.IntegersNegativeAdditionTest"/>
+        </classes>
+    </test>
+    <test name="IntegersSubstractionTest">
+        <classes>
+            <class name="negativeTests.integers.IntegersNegativeSubstractionTest"/>
+        </classes>
+    </test>
+    <test name="IntegersMultiplicationTest">
+        <classes>
+            <class name="negativeTests.integers.IntegersNegativeMultiplicationTest"/>
+        </classes>
+    </test>
+    <test name="IntegersDivisionTest">
+        <classes>
+            <class name="negativeTests.integers.IntegersNegativeDivisionTest"/>
+        </classes>
+    </test>
+
+    <!-- doublesTests -->
+    <test name="DoublesAdditionTest">
+        <classes>
+            <class name="negativeTests.doubles.DoublesNegativeAdditionTest"/>
+        </classes>
+    </test>
+    <test name="DoublesSubstracionTest">
+        <classes>
+            <class name="negativeTests.doubles.DoublesNegativeSubstractionTest"/>
+        </classes>
+    </test>
+    <test name="DoublesMultiplicationTest">
+        <classes>
+            <class name="negativeTests.doubles.DoublesNegativeMultiplicationTest"/>
+        </classes>
+    </test>
+    <test name="DoublesDivisionTest">
+        <classes>
+            <class name="negativeTests.doubles.DoublesNegativeDivisionTest"/>
+        </classes>
+    </test>
+</suite>
