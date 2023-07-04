@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="positiveTests">
+    <!-- integersTests -->
+    <test name="IntegersAdditionTest">
+        <classes>
+            <class name="positiveTests.integers.IntegersAdditionTest"/>
+        </classes>
+    </test>
+    <test name="IntegersSubstractionTest">
+        <classes>
+            <class name="positiveTests.integers.IntegersSubstractionTest"/>
+        </classes>
+    </test>
+    <test name="IntegersMultiplicationTest">
+        <classes>
+            <class name="positiveTests.integers.IntegersMultiplicationTest"/>
+        </classes>
+    </test>
+    <test name="IntegersDivisionTest">
+        <classes>
+            <class name="positiveTests.integers.IntegersDivisionTest"/>
+        </classes>
+    </test>
+
+    <!-- doublesTests -->
+    <test name="DoublesAdditionTest">
+        <classes>
+            <class name="positiveTests.doubles.DoublesAdditionTest"/>
+        </classes>
+    </test>
+    <test name="DoublesSubstracionTest">
+        <classes>
+            <class name="positiveTests.doubles.DoublesSubstractionTest"/>
+        </classes>
+    </test>
+    <test name="DoublesMultiplicationTest">
+        <classes>
+            <class name="positiveTests.doubles.DoublesMultiplicationTest"/>
+        </classes>
+    </test>
+    <test name="DoublesDivisionTest">
+        <classes>
+            <class name="positiveTests.doubles.DoublesDivisionTest"/>
+        </classes>
+    </test>
+</suite>
+
+
+
+
+

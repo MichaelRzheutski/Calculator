@@ -1,33 +1,50 @@
+package positiveTests.doubles;
+
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
 import java.util.Scanner;
 
-public class Main {
-
-    public static void main(String[] args) {
-        calculate();
+public class DoublesSubstractionTest {
+    @DataProvider
+    public Object[][] dataProviderDoublesSubstraction() {
+        return new Object[][]{
+                {"34843,546", "-", "50,90"},
+                {"68993,3478", "-", "505,383"},
+                {"8372678,3423", "-", "283,23"},
+                {"-34843,546", "-", "-50,90"},
+                {"-68993,3478", "-", "505,383"},
+                {"8372678,3423", "-", "-283,23"},
+        };
     }
 
-    private static void calculate() {
-        double number1;
-        double number2;
-        double doubleResult;
+    @Test(dataProvider = "dataProviderDoublesSubstraction")
+    public void calculateDoublesSubstraction(
+            String doubleString1, String sign, String doubleString2
+    ) {
+        double number1 = 0.0;
+        double number2 = 0.0;
+        double doubleResult = 0.0;
         double tempResult;
         int intResult;
         char operation;
 
-        Scanner scanner = new Scanner(System.in);
-
+        Scanner num1 = new Scanner(doubleString1);
         while (true) {
             System.out.println("Введите первое целое либо дробное с разделителем (,) число:");
-            if (scanner.hasNextDouble()) {
-                number1 = scanner.nextDouble();
+            if (num1.hasNextDouble()) {
+                number1 = num1.nextDouble();
             } else {
                 System.out.println("Вы ввели неверное число 1. Перезапустите программу!");
                 break;
             }
+            num1.close();
 
             System.out.println("Введите операцию: + - * /");
-            if (scanner.hasNext()) {
-                Character enteredChar = scanner.next().charAt(0);
+            Scanner operationSign = new Scanner(sign);
+            if (operationSign.hasNext()) {
+                Character enteredChar = operationSign.next().charAt(0);
                 if (enteredChar.equals('+')
                         || enteredChar.equals('-')
                         || enteredChar.equals('*')
@@ -41,14 +58,17 @@ public class Main {
                 System.out.println("Ошибка при вводе операции!");
                 break;
             }
+            operationSign.close();
 
             System.out.println("Введите второе целое либо дробное с разделителем (,) число:");
-            if (scanner.hasNextDouble()) {
-                number2 = scanner.nextDouble();
+            Scanner num2 = new Scanner(doubleString2);
+            if (num2.hasNextDouble()) {
+                number2 = num2.nextDouble();
             } else {
                 System.out.println("Вы ввели неверное число 2. Перезапустите программу!");
                 break;
             }
+            num2.close();
 
             switch (operation) {
                 case '+':
@@ -101,7 +121,8 @@ public class Main {
 
             System.out.println("Желаете продолжить? Введите (да/y/yes) (нет/n/no)");
 
-            String confirmation = scanner.next();
+            Scanner confirmationAnswer = new Scanner("no");
+            String confirmation = confirmationAnswer.next();
             if (confirmation.equalsIgnoreCase("да")
                     || confirmation.equalsIgnoreCase("y")
                     || confirmation.equalsIgnoreCase("yes")) {
@@ -115,7 +136,12 @@ public class Main {
                 System.out.println("Вычисления завершены!");
                 break;
             }
+            confirmationAnswer.close();
         }
+        Assert.assertEquals(
+                doubleResult, number1 - number2,
+                "Actual result is: " + doubleResult
+        );
+        System.out.println();
     }
-
 }
